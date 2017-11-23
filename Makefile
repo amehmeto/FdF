@@ -6,34 +6,36 @@
 #    By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/21 02:31:22 by amehmeto          #+#    #+#              #
-#    Updated: 2017/11/21 02:37:23 by amehmeto         ###   ########.fr        #
+#    Updated: 2017/11/23 05:48:15 by amehmeto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re
 
-NAME = fillit
+NAME = fdf
 FILE = main.c \
+	   src/draw_line.c
 
 OBJ = $(FILE:.c=.o)
-CC == gcc
-FLAGS = -Weverything
+CC = gcc
+FLAGS = -Weverything -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C libft
-	$(CC) $(FLAGS) -o $(NAME) $(OBJ) libft/libft.a
+	make -C minilibx_macos
+	$(CC) $(FLAGS) -o $(NAME) $(notdir $(OBJ)) libft/libft.a minilibx_macos/libmlx.a  -I src -I minilibx_macos 
 
-%.o: src/%.c
+%.o: %.c src/fdf.h
 	$(CC) -c $< $(FLAGS)
 
 clean:
 	make -C libft clean
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
 	make -C libft fclean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
