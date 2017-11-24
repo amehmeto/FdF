@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:51:19 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/11/24 05:03:42 by amehmeto         ###   ########.fr       */
+/*   Updated: 2017/11/24 05:14:54 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,10 @@ void			draw_line(int x_1, int y_1, int x_2, int y_2, t_env *e)
 	else if (y_1 == y_2)
 		draw_hline(x_1, x_2, y_1, e);
 	else
-		bresen_line(x_1, y_1, x_2, y_2, e);
+	{
+		if (x_1 > x_2)
+			bresen_line(x_2, y_2, x_1, y_1, e);
+		else
+			bresen_line(x_1, y_1, x_2, y_2, e);
+	}
 }
