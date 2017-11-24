@@ -6,7 +6,7 @@
 #    By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/21 02:31:22 by amehmeto          #+#    #+#              #
-#    Updated: 2017/11/24 03:07:54 by amehmeto         ###   ########.fr        #
+#    Updated: 2017/11/24 06:36:35 by amehmeto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,19 +23,19 @@ FLAGS = -Weverything -lmlx -framework OpenGL -framework AppKit
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make -C libft
+	make -C ../Libft
 	make -C minilibx_macos
-	$(CC) $(FLAGS) -o $(NAME) $(notdir $(OBJ)) libft/libft.a minilibx_macos/libmlx.a  -I src -I minilibx_macos 
+	$(CC) $(FLAGS) -o $(NAME) $(notdir $(OBJ)) ../Libft/libft.a minilibx_macos/libmlx.a  -I src -I minilibx_macos
 
 %.o: %.c src/fdf.h
 	$(CC) -c $< $(FLAGS)
 
 clean:
-	make -C libft clean
+	make -C ../Libft clean
 	rm -f $(OBJ)
 
 fclean: clean
-	make -C libft fclean
+	make -C ../Libft fclean
 	rm -f $(NAME)
 
 re: fclean all

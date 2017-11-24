@@ -6,13 +6,13 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:51:19 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/11/24 06:13:23 by amehmeto         ###   ########.fr       */
+/*   Updated: 2017/11/24 06:23:25 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		draw_vline(int x, int l->y1, int l->y2, t_env *e)
+static void		draw_vline(t_line *l, t_env *e)
 {
 	int		tmp;
 
@@ -23,10 +23,10 @@ static void		draw_vline(int x, int l->y1, int l->y2, t_env *e)
 		l->y1 = tmp;
 	}
 	while (l->y1 <= l->y2)
-		mlx_pixel_put(e->mlx, e->win, x, l->y1++, 0x00FF00FF);
+		mlx_pixel_put(e->mlx, e->win, l->x1, l->y1++, 0x00FF00FF);
 }
 
-static void		draw_hline(int l->x1, int l->x2, int y, t_env *e)
+static void		draw_hline(t_line *l, t_env *e)
 {
 	int		tmp;
 
@@ -37,7 +37,7 @@ static void		draw_hline(int l->x1, int l->x2, int y, t_env *e)
 		l->x1 = tmp;
 	}
 	while (l->x1 <= l->x2)
-		mlx_pixel_put(e->mlx, e->win, l->x1++, y, 0x00FF00FF);
+		mlx_pixel_put(e->mlx, e->win, l->x1++, l->y1, 0x00FF00FF);
 }
 
 static void		bresen_line(t_line *l, t_env *e)
@@ -71,19 +71,14 @@ static void		bresen_line(t_line *l, t_env *e)
 	}
 }
 
-void			draw_line(int l->x1, int l->y1, int l->x2, int l->y2, t_env *e)
+void			draw_line(t_line *l, t_env *e)
 {
 	if (l->x1 == l->x2 && l->y1 == l->y2)
 		mlx_pixel_put(e->mlx, e->win, l->x1, l->y1, 0x00FFFFFF);
 	else if (l->x1 == l->x2)
-		draw_vline(l->x1, l->y1, l->y2, e);
+		draw_vline(l, e);
 	else if (l->y1 == l->y2)
-		draw_hline(l->x1, l->x2, l->y1, e);
+		draw_hline(l, e);
 	else
-	{
-		if (l->x1 > l->x2)
-			bresen_line(l->x2, l->y2, l->x1, l->y1, e);
-		else
-			bresen_line(l->x1, l->y1, l->x2, l->y2, e);
-	}
+			bresen_line(l, e);
 }
