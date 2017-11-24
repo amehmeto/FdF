@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/21 02:11:19 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/11/22 00:54:38 by amehmeto         ###   ########.fr       */
+/*   Created: 2017/11/24 03:10:20 by amehmeto          #+#    #+#             */
+/*   Updated: 2017/11/24 03:21:19 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ typedef struct	s_env
 }				t_env;
 
 int		my_key_funct(int keycode, void *param);
-void	draw_line(int x, int y, int i, int j, t_env *e);
+void	draw_line(int x_1, int y_1, int x_2, int y_2, t_env *e);
 
 #endif

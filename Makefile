@@ -6,14 +6,14 @@
 #    By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/21 02:31:22 by amehmeto          #+#    #+#              #
-#    Updated: 2017/11/23 05:48:15 by amehmeto         ###   ########.fr        #
+#    Updated: 2017/11/24 03:07:54 by amehmeto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re
 
 NAME = fdf
-FILE = main.c \
+FILE = src/main.c \
 	   src/draw_line.c
 
 OBJ = $(FILE:.c=.o)

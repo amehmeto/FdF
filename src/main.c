@@ -6,11 +6,11 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/11/23 01:15:31 by amehmeto         ###   ########.fr       */
+/*   Updated: 2017/11/24 03:18:29 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./src/fdf.h"
+#include "./fdf.h"
 
 int		my_key_funct(int keycode, void *param)
 {
