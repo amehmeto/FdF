@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:51:19 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/11/24 03:45:11 by amehmeto         ###   ########.fr       */
+/*   Updated: 2017/11/24 05:03:42 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,30 @@ static void		draw_hline(int x_1, int x_2, int y, t_env *e)
 
 static void		bresen_line(int x_1, int y_1, int x_2, int y_2, t_env *e)
 {
-	int		eps;
 	int		dx;
 	int		dy;
 	int		x_inc;
 	int		y_inc;
+	int		eps;
+	int		err;
 
-	eps = 0;
-	dx = (x_2 - x_1);
-	dy = (y_2 - y_1);
-	x_inc = (dx > 0) ? 1 : -1;
-	y_inc = (dy > 0) ? 1 : -1;
+	dx = ft_abs(x_2 - x_1);
+	dy = ft_abs(y_2 - y_1);
+	x_inc = (x_1 < x_2) ? 1 : -1;
+	y_inc = (y_1 < y_2) ? 1 : -1;
+	err = (dx > dy ? dx : -dy) / 2;
 	while (x_1 <= x_2)
 	{
-		mlx_pixel_put(e->mlx, e->win, x_1 += x_inc, y_1, 0x00FFFFFF);
-		eps += dy;
-		if ((eps << 1) >= dx)
+		mlx_pixel_put(e->mlx, e->win, x_1, y_1, 0x00FFFFFF);
+		eps = err;
+		if (eps > -dx)
 		{
-			eps -= dx;
+			err -= dy;
+			x_1 += x_inc;
+		}
+		if (eps < dy)
+		{
+			err += dx;
 			y_1 += y_inc;
 		}
 	}

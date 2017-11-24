@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 03:10:20 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/11/24 03:44:17 by amehmeto         ###   ########.fr       */
+/*   Updated: 2017/11/24 04:24:12 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../minilibx_macos/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
+# include <math.h>
 
 typedef struct	s_env
 {
