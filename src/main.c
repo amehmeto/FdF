@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/11/24 03:48:16 by amehmeto         ###   ########.fr       */
+/*   Updated: 2017/11/24 06:11:15 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		my_key_funct(int keycode, void *param)
 
 int		main(int ac, char **av)
 {
-	int		x_1, y_1, x_2, y_2;
+	t_line	l;
 	t_env	e;
 
 	if (ac == 5)
@@ -31,12 +31,12 @@ int		main(int ac, char **av)
 		e.mlx = mlx_init();
 		e.win = mlx_new_window(e.mlx, 400, 400, "mlx 42");
 
-		x_1 = atoi(av[1]);
-		y_1 = atoi(av[2]);
-		x_2 = atoi(av[3]);
-		y_2 = atoi(av[4]);
+		l.x1 = atoi(av[1]);
+		l.y1 = atoi(av[2]);
+		l.x2 = atoi(av[3]);
+		l.y2 = atoi(av[4]);
 
-		draw_line(x_1, y_1, x_2, y_2, &e);
+		draw_line(&l, &e);
 
 		mlx_key_hook(e.win, (int (*)(void))my_key_funct, 0);
 		mlx_loop(e.mlx);
