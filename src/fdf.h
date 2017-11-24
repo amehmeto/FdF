@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 03:10:20 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/11/24 03:21:19 by amehmeto         ###   ########.fr       */
+/*   Updated: 2017/11/24 03:44:17 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct	s_env
 	void	*win;
 }				t_env;
 
-int		my_key_funct(int keycode, void *param);
-void	draw_line(int x_1, int y_1, int x_2, int y_2, t_env *e);
+int				my_key_funct(int keycode, void *param);
+void			draw_line(int x_1, int y_1, int x_2, int y_2, t_env *e);
 
 #endif
