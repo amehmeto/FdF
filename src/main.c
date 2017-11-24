@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/11/24 06:11:15 by amehmeto         ###   ########.fr       */
+/*   Updated: 2017/11/24 06:42:37 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		main(int ac, char **av)
 		e.mlx = mlx_init();
 		e.win = mlx_new_window(e.mlx, 400, 400, "mlx 42");
 
+		ft_putstr("WESH !!\n");
 		l.x1 = atoi(av[1]);
 		l.y1 = atoi(av[2]);
 		l.x2 = atoi(av[3]);

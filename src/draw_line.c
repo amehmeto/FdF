@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:51:19 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/11/24 06:23:25 by amehmeto         ###   ########.fr       */
+/*   Updated: 2017/11/24 06:46:32 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,16 @@
 
 static void		draw_vline(t_line *l, t_env *e)
 {
-	int		tmp;
-
 	if (l->y1 > l->y2)
-	{
-		tmp = l->y2;
-		l->y2 = l->y1;
-		l->y1 = tmp;
-	}
+		ft_swap(&l->y1, &l->y2);
 	while (l->y1 <= l->y2)
 		mlx_pixel_put(e->mlx, e->win, l->x1, l->y1++, 0x00FF00FF);
 }
 
 static void		draw_hline(t_line *l, t_env *e)
 {
-	int		tmp;
-
 	if (l->x1 > l->x2)
-	{
-		tmp = l->x2;
-		l->x2 = l->x1;
-		l->x1 = tmp;
-	}
+		ft_swap(&l->x1, &l->x2);
 	while (l->x1 <= l->x2)
 		mlx_pixel_put(e->mlx, e->win, l->x1++, l->y1, 0x00FF00FF);
 }
@@ -73,6 +61,11 @@ static void		bresen_line(t_line *l, t_env *e)
 
 void			draw_line(t_line *l, t_env *e)
 {
+	printf("x1 = %d\n", l->x1);
+	printf("y1 = %d\n", l->y1);
+	printf("x2 = %d\n", l->x2);
+	printf("y2 = %d\n", l->y2);
+
 	if (l->x1 == l->x2 && l->y1 == l->y2)
 		mlx_pixel_put(e->mlx, e->win, l->x1, l->y1, 0x00FFFFFF);
 	else if (l->x1 == l->x2)
@@ -80,5 +73,13 @@ void			draw_line(t_line *l, t_env *e)
 	else if (l->y1 == l->y2)
 		draw_hline(l, e);
 	else
+	{
+		if (l->x1 > l->x2)
+		{
+			ft_swap(&l->x1, &l->x2);
 			bresen_line(l, e);
+		}
+		else
+			bresen_line(l, e);
+	}
 }
