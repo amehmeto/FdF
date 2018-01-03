@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/11/24 06:42:37 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/03 21:46:24 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,25 @@ int		my_key_funct(int keycode, void *param)
 int		main(int ac, char **av)
 {
 	t_line	l;
+	t_size	s;
 	t_env	e;
 
-	if (ac == 5)
+	if (ac != 2)
 	{
+		ft_putstr("usage: ./fdf source_file.fdf\n");
+		return (0);
+	}
+	else
+	{
+		map_parser(av[1], size_finder(av[1]));
+
 		e.mlx = mlx_init();
 		e.win = mlx_new_window(e.mlx, 400, 400, "mlx 42");
 
-		ft_putstr("WESH !!\n");
-		l.x1 = atoi(av[1]);
-		l.y1 = atoi(av[2]);
-		l.x2 = atoi(av[3]);
-		l.y2 = atoi(av[4]);
-
-		draw_line(&l, &e);
+		printf("Double OK\n");
 
 		mlx_key_hook(e.win, (int (*)(void))my_key_funct, 0);
 		mlx_loop(e.mlx);
 	}
-	else
-		printf("4 arguments needed\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:51:19 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/11/24 07:10:35 by amehmeto         ###   ########.fr       */
+/*   Updated: 2017/12/19 02:16:17 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,6 @@ static void		bresen_line(t_line *l, t_env *e)
 
 void			draw_line(t_line *l, t_env *e)
 {
-	printf("x1 = %d\n", l->x1);
-	printf("y1 = %d\n", l->y1);
-	printf("x2 = %d\n", l->x2);
-	printf("y2 = %d\n", l->y2);
-
 	if (l->x1 == l->x2 && l->y1 == l->y2)
 		mlx_pixel_put(e->mlx, e->win, l->x1, l->y1, 0x00FFFFFF);
 	else if (l->x1 == l->x2)
