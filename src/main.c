@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/04 07:32:09 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/04 08:47:13 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,19 @@ void	draw_wireframe(char ***map, t_env *e)
 			set_line(&l, x, y, x + 1, y);
 			if (map[y][x + 1])
 				z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y][x + 1]));
+			iso_adjustment(&l);
 			draw_line(&l, e);
 			set_line(&l, x, y, x, y + 1);
 			if (map[y + 1][x])
 				z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y + 1][x]));
+			iso_adjustment(&l);
 			draw_line(&l, e);
 			x++;
 		}
 		set_line(&l, x, y, x, y + 1);
 		if (map[y + 1][x])
 			z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y + 1][x]));
+		iso_adjustment(&l);
 		draw_line(&l, e);
 		y++;
 	}
@@ -56,6 +59,7 @@ void	draw_wireframe(char ***map, t_env *e)
 		set_line(&l, x, y, x + 1, y);
 		if (map[y][x + 1])
 			z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y][x + 1]));
+		iso_adjustment(&l);
 		draw_line(&l, e);
 		x++;
 	}

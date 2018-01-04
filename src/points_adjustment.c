@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 07:12:38 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/04 07:24:12 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/04 10:39:44 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,15 @@ void	z_adjustment(t_line *l, int z1, int z2)
 {
 	l->y1 -= (z1 * Z_SCALE);
 	l->y2 -= (z2 * Z_SCALE); 
+}
+
+void	iso_adjustment(t_line *l)
+{
+	t_line	l_cpy;
+
+	l_cpy = *l;
+	l->x1 = (l_cpy.x1 - l_cpy.y1) ;
+	l->y1 = (l_cpy.x1 + l_cpy.y1) ;
+	l->x2 = (l_cpy.x2 - l_cpy.y2) ;
+	l->y2 = (l_cpy.x2 + l_cpy.y2) ;	
 }
