@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/03 21:46:24 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/04 00:38:51 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int		my_key_funct(int keycode, void *param)
 
 int		main(int ac, char **av)
 {
-	t_line	l;
-	t_size	s;
 	t_env	e;
 
 	if (ac != 2)
@@ -39,7 +37,7 @@ int		main(int ac, char **av)
 		e.mlx = mlx_init();
 		e.win = mlx_new_window(e.mlx, 400, 400, "mlx 42");
 
-		printf("Double OK\n");
+		printf("main.c OK\n");
 
 		mlx_key_hook(e.win, (int (*)(void))my_key_funct, 0);
 		mlx_loop(e.mlx);

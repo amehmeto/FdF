@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 03:10:20 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/03 21:40:51 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/04 01:33:55 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ typedef struct	s_size
 int				my_key_funct(int keycode, void *param);
 void			draw_line(t_line *l, t_env *e);
 t_size			size_finder(const char *av);
-void			map_parser(const char *av, t_size s);
+char			***map_parser(const char *av, t_size s);
 
 #endif
