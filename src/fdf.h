@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 03:10:20 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/04 03:45:02 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/04 06:10:09 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
+
+# define SCALE 30
 
 typedef struct	s_env
 {
@@ -56,6 +58,7 @@ typedef struct	s_size
 
 int				my_key_funct(int keycode, void *param);
 void			draw_line(t_line *l, t_env *e);
+void			set_line(t_line *l, int x1, int y1, int x2, int y2);
 //t_size			size_finder(const char *av);
 void			print_raw_map(char ***map);
 char			***map_parser(const char *av);

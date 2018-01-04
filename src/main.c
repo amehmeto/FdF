@@ -6,12 +6,11 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/04 03:52:14 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/04 06:17:16 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./fdf.h"
-#define SCALE 100
 
 int		my_key_funct(int keycode, void *param)
 {
@@ -25,30 +24,32 @@ int		my_key_funct(int keycode, void *param)
 void	draw_wireframe(char ***map, t_env *e)
 {
 	t_line	l;
-	int		i;
-	int		j;
+	int		x;
+	int		y;
 
 	print_raw_map(map);
-	i = 0;
-	while (map[i] && map[i + 1])
+	y = 0;
+	while (map[y] && map[y + 1])
 	{
-		j = 0;
-		while (map[i][j])
+		x = 0;
+		while (map[y][x])
 		{
-			printf("i = %d \t j = %d \t map[i][j] = %s\n", i, j, map[i][j]);
-			l.x1 = i * SCALE;
-			l.y1 = j * SCALE;
-			l.x2 = (i + 1) * SCALE;
-			l.y2 = (j ) * SCALE;
+			set_line(&l, x, y, x + 1, y);
 			draw_line(&l, e);
-			l.x1 = i * SCALE;
-			l.y1 = j * SCALE;
-			l.x2 = i * SCALE;
-			l.y2 = (j + 1) * SCALE;
+			set_line(&l, x, y, x, y + 1);
 			draw_line(&l, e);
-			j++;
+			x++;
 		}
-		i++;
+		set_line(&l, x, y, x, y + 1);
+		draw_line(&l, e);
+		y++;
+	}
+	x = 0;
+	while (map[y][x])
+	{
+		set_line(&l, x, y, x + 1, y);
+		draw_line(&l, e);
+		x++;
 	}
 }
 
@@ -67,7 +68,7 @@ int		main(int ac, char **av)
 		map = map_parser(av[1]);
 
 		e.mlx = mlx_init();
-		e.win = mlx_new_window(e.mlx, 1000, 1000, "FdF maggle");
+		e.win = mlx_new_window(e.mlx, 500, 500, "FdF maggle");
 
 		draw_wireframe(map, e.mlx);
 

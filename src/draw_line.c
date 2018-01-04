@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:51:19 by amehmeto          #+#    #+#             */
-/*   Updated: 2017/12/19 02:16:17 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/04 06:11:51 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,13 @@ void			draw_line(t_line *l, t_env *e)
 		else
 			bresen_line(l, e);
 	}
+}
+
+
+void			set_line(t_line *l, int x1, int y1, int x2, int y2)
+{
+	l->x1 = x1 * SCALE;
+	l->y1 = y1 * SCALE;
+	l->x2 = x2 * SCALE;
+	l->y2 = y2 * SCALE;	
 }
