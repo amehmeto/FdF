@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 03:10:20 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/04 01:33:55 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/04 03:45:02 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,19 @@ typedef struct	s_bvar
 	int		err;
 }				t_bvar;
 
+/*
 typedef struct	s_size
 {
 	int		max_len;
 	int		height;
 }				t_size;
+*/
 
 int				my_key_funct(int keycode, void *param);
 void			draw_line(t_line *l, t_env *e);
-t_size			size_finder(const char *av);
-char			***map_parser(const char *av, t_size s);
+//t_size			size_finder(const char *av);
+void			print_raw_map(char ***map);
+char			***map_parser(const char *av);
+void			draw_wireframe(char ***map, t_env *e);
 
 #endif
