@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 23:38:10 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/04 06:08:54 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/04 07:13:10 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void		print_raw_map(char ***map)
 		i++;
 	}
 }
-
 
 char		***map_parser(const char *av)
 {

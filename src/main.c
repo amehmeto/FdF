@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/04 06:17:16 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/04 07:32:09 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,18 @@ void	draw_wireframe(char ***map, t_env *e)
 		while (map[y][x])
 		{
 			set_line(&l, x, y, x + 1, y);
+			if (map[y][x + 1])
+				z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y][x + 1]));
 			draw_line(&l, e);
 			set_line(&l, x, y, x, y + 1);
+			if (map[y + 1][x])
+				z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y + 1][x]));
 			draw_line(&l, e);
 			x++;
 		}
 		set_line(&l, x, y, x, y + 1);
+		if (map[y + 1][x])
+			z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y + 1][x]));
 		draw_line(&l, e);
 		y++;
 	}
@@ -48,6 +54,8 @@ void	draw_wireframe(char ***map, t_env *e)
 	while (map[y][x])
 	{
 		set_line(&l, x, y, x + 1, y);
+		if (map[y][x + 1])
+			z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y][x + 1]));
 		draw_line(&l, e);
 		x++;
 	}
@@ -68,7 +76,7 @@ int		main(int ac, char **av)
 		map = map_parser(av[1]);
 
 		e.mlx = mlx_init();
-		e.win = mlx_new_window(e.mlx, 500, 500, "FdF maggle");
+		e.win = mlx_new_window(e.mlx, 1100, 1100, "FdF maggle");
 
 		draw_wireframe(map, e.mlx);
 

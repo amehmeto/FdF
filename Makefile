@@ -6,7 +6,7 @@
 #    By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/21 02:31:22 by amehmeto          #+#    #+#              #
-#    Updated: 2018/01/04 03:04:34 by amehmeto         ###   ########.fr        #
+#    Updated: 2018/01/04 07:12:02 by amehmeto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@
 NAME = fdf
 FILE = src/main.c \
 	   src/draw_line.c \
-	   src/map_parser.c 
+	   src/map_parser.c \
+	   src/points_adjustment.c
 
 OBJ = $(FILE:.c=.o)
 CC = gcc
