@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/05 07:07:47 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/05 11:10:13 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,55 +21,56 @@ int		my_key_funct(int keycode, void *param)
 	return (0);
 }
 
+static void		draw_tile(t_line *l, t_env *e)
+{
+	iso_adjustment(l);
+	draw_line(l, e);
+}
+
 void	draw_wireframe(char ***map, t_env *e)
 {
 	t_line	l;
-	int		x;
-	int		y;
+	t_coor	c;
 
 	print_raw_map(map);
-	y = 0;
-	while (map[y] && map[y + 1])
+	c.y = 0;
+	while (map[c.y] && map[c.y + 1])
 	{
-		x = 0;
-		while (map[y][x])
+		c.x = 0;
+		while (map[c.y][c.x])
 		{
-			if (map[y][x + 1])
+			if (map[c.y][c.x + 1])
 			{
-				set_line(&l, x, y, x + 1, y);
-				z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y][x + 1]));
-				iso_adjustment(&l);
-				draw_line(&l, e);
+				margin_adjustment(&l, c, 1);
+				z_adjustment(&l, c, map, 1);
+				draw_tile(&l, e);
 			}
-			if (map[y + 1][x])
+			if (map[c.y + 1][c.x])
 			{
-				set_line(&l, x, y, x, y + 1);
-				z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y + 1][x]));
-				iso_adjustment(&l);
-				draw_line(&l, e);
+				margin_adjustment(&l, c, 2);
+				z_adjustment(&l, c, map, 2);
+				draw_tile(&l, e);
 			}
-			x++;
+			c.x++;
 		}
-		if (map[y + 1][x])
+		if (map[c.y + 1][c.x])
 		{
-			set_line(&l, x, y, x, y + 1);
-			z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y + 1][x]));
-			iso_adjustment(&l);
-			draw_line(&l, e);
+			margin_adjustment(&l, c, 2);
+			z_adjustment(&l, c, map, 2);
+			draw_tile(&l, e);
 		}
-		y++;
+		c.y++;
 	}
-	x = 0;
-	while (map[y][x])
+	c.x = 0;
+	while (map[c.y][c.x])
 	{
-		if (map[y][x + 1])
+		if (map[c.y][c.x + 1])
 		{
-			set_line(&l, x, y, x + 1, y);
-			z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y][x + 1]));
-			iso_adjustment(&l);
-			draw_line(&l, e);
+			margin_adjustment(&l, c, 1);
+			z_adjustment(&l, c, map, 1);
+			draw_tile(&l, e);
 		}
-		x++;
+		c.x++;
 	}
 }
 

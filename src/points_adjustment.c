@@ -6,24 +6,31 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 07:12:38 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/05 07:41:05 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/05 11:31:52 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./fdf.h"
 
-void	set_line(t_line *l, int x1, int y1, int x2, int y2)
+void	margin_adjustment(t_line *l, t_coor c, int var)
 {
-	l->x1 = x1 * SCALE + X_MARGIN;
-	l->y1 = y1 * SCALE + Y_MARGIN;
-	l->x2 = x2 * SCALE + X_MARGIN;
-	l->y2 = y2 * SCALE + Y_MARGIN;
+	l->x1 = c.x * SCALE + X_MARGIN;
+	l->y1 = c.y * SCALE + Y_MARGIN;
+	l->x2 = c.x * SCALE + X_MARGIN;
+	l->y2 = c.y * SCALE + Y_MARGIN;
+	if (var == 1)
+		l->x2 = (c.x + 1) * SCALE + X_MARGIN;
+	if (var == 2)
+		l->y2 = (c.y + 1) * SCALE + Y_MARGIN;
 }
 
-void	z_adjustment(t_line *l, int z1, int z2)
+void	z_adjustment(t_line *l, t_coor c, char ***map, int var)
 {
-	l->y1 -= (z1 * Z_SCALE);
-	l->y2 -= (z2 * Z_SCALE);
+	l->y1 -= ft_atoi(map[c.y][c.x]) * Z_SCALE;
+	if (var == 1)
+		l->y2 -= ft_atoi(map[c.y][c.x + 1]) * Z_SCALE;
+	if (var == 2)
+		l->y2 -= ft_atoi(map[c.y + 1][c.x]) * Z_SCALE;
 }
 
 void	iso_adjustment(t_line *l)
