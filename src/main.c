@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/05 13:07:08 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/05 13:15:15 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,29 +35,23 @@ void			draw_wireframe(char ***map, t_env *e)
 	t_coor	c;
 
 	print_raw_map(map);
-	c.y = 0;
-	while (map[c.y] && map[c.y + 1])
+	c.y = -1;
+	while (map[c.y] && map[++c.y + 1])
 	{
-		c.x = 0;
-		while (map[c.y][c.x])
+		c.x = -1;
+		while (map[c.y][++c.x])
 		{
 			if (map[c.y][c.x + 1])
 				draw_tile(&l, e, c, map, 1);
 			if (map[c.y + 1][c.x])
 				draw_tile(&l, e, c, map, 2);
-			c.x++;
 		}
 		if (map[c.y + 1][c.x])
 			draw_tile(&l, e, c, map, 2);
-		c.y++;
 	}
-	c.x = 0;
-	while (map[c.y][c.x])
-	{
-		if (map[c.y][c.x + 1])
+	c.x = -1;
+	while (map[c.y][++c.x] && map[c.y][c.x + 1])
 			draw_tile(&l, e, c, map, 1);
-		c.x++;
-	}
 }
 
 int				main(int ac, char **av)
