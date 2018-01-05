@@ -6,7 +6,7 @@
 #    By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/21 02:31:22 by amehmeto          #+#    #+#              #
-#    Updated: 2018/01/04 07:12:02 by amehmeto         ###   ########.fr        #
+#    Updated: 2018/01/05 06:15:46 by amehmeto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,12 @@ NAME = fdf
 FILE = src/main.c \
 	   src/draw_line.c \
 	   src/map_parser.c \
-	   src/points_adjustment.c
+	   src/points_adjustment.c \
+	   src/is_ok.c
 
 OBJ = $(FILE:.c=.o)
 CC = gcc
-FLAGS = -Weverything -lmlx -framework OpenGL -framework AppKit
+FLAGS = -g -Weverything -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)
 

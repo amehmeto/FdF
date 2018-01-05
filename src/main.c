@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/04 08:47:13 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/05 06:27:54 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,18 @@ void	draw_wireframe(char ***map, t_env *e)
 int		main(int ac, char **av)
 {
 	char	***map;
+	int		a;
 	t_env	e;
 
 	if (ac != 2)
 	{
 		ft_putstr("usage: ./fdf source_file.fdf\n");
+		return (0);
+	}
+	else if (a = is_ok(av[1]))
+	{
+		ft_putstr("Error with the file\n");
+		ft_putnbr(a);
 		return (0);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 03:10:20 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/04 11:02:00 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/05 06:14:46 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <stdlib.h>
 # include <math.h>
 
-# define SCALE 20
+# define SCALE 2
 # define Z_SCALE 5 
 # define X_MARGIN 300
 # define Y_MARGIN 20
@@ -57,6 +57,7 @@ void			set_line(t_line *l, int x1, int y1, int x2, int y2);
 void			z_adjustment(t_line *l, int z1, int z2);
 void			iso_adjustment(t_line *l);
 void			print_raw_map(char ***map);
+int				is_ok(const char *av);
 char			***map_parser(const char *av);
 void			draw_wireframe(char ***map, t_env *e);
 

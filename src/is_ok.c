@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   size_finder.c                                      :+:      :+:    :+:   */
+/*   is_ok.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/03 21:32:36 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/04 02:52:28 by amehmeto         ###   ########.fr       */
+/*   Created: 2018/01/05 05:20:48 by amehmeto          #+#    #+#             */
+/*   Updated: 2018/01/05 06:17:45 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,45 @@ static int			counter(char **tab)
 	return (i);
 }
 
-t_size				size_finder(const char *av)
+/*
+static int			is_data_ok(char **s_line)
+{
+	int		i;
+
+	i = 0;
+	while (s_line[i])
+		if (s_line[i] !=
+	return (NULL);
+}
+*/
+
+int					is_ok(const char *av)
 {
 	char	**splitted_line;
 	char	*line;
-	int		rslt;
 	int		fd;
-	t_size	s;
+	int		size;
 
 	if ((fd = open(av, O_RDWR)) == -1)
+	{
 		ft_putstr("open error\n");
-	rslt = 0;
-	s.max_len = 0;
-	s.height = 0;
-	while (get_next_line(fd, &line) == 1 && s.height++ >= 0)
+		return (1);
+	}
+	if (get_next_line(fd, &line) == 1)
 	{
 		splitted_line = ft_strsplit(line, ' ');
-		rslt = counter(splitted_line);
-		(s.max_len < rslt) ? s.max_len = rslt : s.max_len;
-	//	printf("line # %d = \t %s\n", s.height, line);
-	//	printf("\t \t max_len = %d \t height = %d\n", s.max_len, s.height);
+		size = counter(splitted_line);
+	}
+	else
+		return (2);
+	while (get_next_line(fd, &line) == 1)
+	{
+		if (counter(splitted_line = ft_strsplit(line, ' ')) != size)
+			return (3);
+		//if (is_data_ok(splitted_line))
+		//	return (4);
 	}
 	if (close(fd) == -1)
 		ft_putstr("close error\n");
-	return (s);
+	return (0);
 }
