@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 05:20:48 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/05 06:17:45 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/05 07:00:46 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,6 @@ static int			counter(char **tab)
 		i++;
 	return (i);
 }
-
-/*
-static int			is_data_ok(char **s_line)
-{
-	int		i;
-
-	i = 0;
-	while (s_line[i])
-		if (s_line[i] !=
-	return (NULL);
-}
-*/
 
 int					is_ok(const char *av)
 {
@@ -57,8 +45,6 @@ int					is_ok(const char *av)
 	{
 		if (counter(splitted_line = ft_strsplit(line, ' ')) != size)
 			return (3);
-		//if (is_data_ok(splitted_line))
-		//	return (4);
 	}
 	if (close(fd) == -1)
 		ft_putstr("close error\n");

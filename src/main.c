@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/05 06:27:54 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/05 07:07:47 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,33 +34,41 @@ void	draw_wireframe(char ***map, t_env *e)
 		x = 0;
 		while (map[y][x])
 		{
-			set_line(&l, x, y, x + 1, y);
 			if (map[y][x + 1])
+			{
+				set_line(&l, x, y, x + 1, y);
 				z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y][x + 1]));
-			iso_adjustment(&l);
-			draw_line(&l, e);
-			set_line(&l, x, y, x, y + 1);
+				iso_adjustment(&l);
+				draw_line(&l, e);
+			}
 			if (map[y + 1][x])
+			{
+				set_line(&l, x, y, x, y + 1);
 				z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y + 1][x]));
-			iso_adjustment(&l);
-			draw_line(&l, e);
+				iso_adjustment(&l);
+				draw_line(&l, e);
+			}
 			x++;
 		}
-		set_line(&l, x, y, x, y + 1);
 		if (map[y + 1][x])
+		{
+			set_line(&l, x, y, x, y + 1);
 			z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y + 1][x]));
-		iso_adjustment(&l);
-		draw_line(&l, e);
+			iso_adjustment(&l);
+			draw_line(&l, e);
+		}
 		y++;
 	}
 	x = 0;
 	while (map[y][x])
 	{
-		set_line(&l, x, y, x + 1, y);
 		if (map[y][x + 1])
+		{
+			set_line(&l, x, y, x + 1, y);
 			z_adjustment(&l, ft_atoi(map[y][x]), ft_atoi(map[y][x + 1]));
-		iso_adjustment(&l);
-		draw_line(&l, e);
+			iso_adjustment(&l);
+			draw_line(&l, e);
+		}
 		x++;
 	}
 }
@@ -76,7 +84,7 @@ int		main(int ac, char **av)
 		ft_putstr("usage: ./fdf source_file.fdf\n");
 		return (0);
 	}
-	else if (a = is_ok(av[1]))
+	else if ((a = is_ok(av[1])))
 	{
 		ft_putstr("Error with the file\n");
 		ft_putnbr(a);
