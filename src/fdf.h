@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 03:10:20 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/05 07:06:24 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/05 07:39:59 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <stdlib.h>
 # include <math.h>
 
-# define SCALE 2
-# define Z_SCALE 5 
+# define SCALE 20
+# define Z_SCALE 50
 # define X_MARGIN 300
 # define Y_MARGIN 20
 
