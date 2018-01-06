@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 07:12:38 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/05 11:31:52 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/06 20:20:30 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	margin_adjustment(t_line *l, t_coor c, int var)
 		l->y2 = (c.y + 1) * SCALE + Y_MARGIN;
 }
 
-void	z_adjustment(t_line *l, t_coor c, char ***map, int var)
+void	z_adjustment(t_line *l, t_coor c, int var)
 {
-	l->y1 -= ft_atoi(map[c.y][c.x]) * Z_SCALE;
+	l->y1 -= ft_atoi(c.map[c.y][c.x]) * Z_SCALE;
 	if (var == 1)
-		l->y2 -= ft_atoi(map[c.y][c.x + 1]) * Z_SCALE;
+		l->y2 -= ft_atoi(c.map[c.y][c.x + 1]) * Z_SCALE;
 	if (var == 2)
-		l->y2 -= ft_atoi(map[c.y + 1][c.x]) * Z_SCALE;
+		l->y2 -= ft_atoi(c.map[c.y + 1][c.x]) * Z_SCALE;
 }
 
 void	iso_adjustment(t_line *l)
