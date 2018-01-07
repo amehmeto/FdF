@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 03:10:20 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/06 20:35:02 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/06 22:50:45 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void			iso_adjustment(t_line *l);
 void			print_raw_map(char ***map);
 int				is_ok(const char *av);
 char			***map_parser(const char *av);
+void			free_in_mass(char **map);
 
 #endif

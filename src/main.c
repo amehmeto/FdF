@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 00:43:09 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/06 20:22:35 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/07 03:44:49 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,15 @@ static void		draw_wireframe(char ***map, t_env *e)
 	c.x = -1;
 	while (map[c.y][++c.x] && map[c.y][c.x + 1])
 		draw_tile(&l, e, c, 1);
+	
+	/*
+	c.y = -1;
+	while (map[++c.y][c.x])
+	{
+		c.x = -1;
+		while (map[c.y][++c.x])
+			free(map[c.y][c.x]);
+	}*/
 }
 
 int				main(int ac, char **av)
@@ -81,5 +90,6 @@ int				main(int ac, char **av)
 		mlx_key_hook(e.win, (int (*)(void))key_funct, 0);
 		mlx_loop(e.mlx);
 	}
+	printf("WESH\n");
 	return (0);
 }

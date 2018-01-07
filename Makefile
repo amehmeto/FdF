@@ -6,7 +6,7 @@
 #    By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/21 02:31:22 by amehmeto          #+#    #+#              #
-#    Updated: 2018/01/05 06:15:46 by amehmeto         ###   ########.fr        #
+#    Updated: 2018/01/07 00:12:35 by amehmeto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ FILE = src/main.c \
 	   src/draw_line.c \
 	   src/map_parser.c \
 	   src/points_adjustment.c \
-	   src/is_ok.c
+	   src/is_ok.c \
+	   src/free_in_mass.c
 
 OBJ = $(FILE:.c=.o)
 CC = gcc

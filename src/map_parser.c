@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 23:38:10 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/05 07:38:09 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/07 03:27:07 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,17 @@ char		***map_parser(const char *av)
 	char	***tab;
 	char	*line;
 	int		fd;
-	int		j;
+	int		i;
 
 	if ((fd = open(av, O_RDWR)) == -1)
 		ft_putstr("open error\n");
-	j = 0;
+	i = 0;
 	while (get_next_line(fd, &line) == 1)
-		tab[j++] = ft_strsplit(line, ' ');
-	tab[j] = NULL;
+	{
+		tab[i++] = ft_strsplit(line, ' ');
+		free(line);
+	}
+	tab[i] = NULL;
 	if (close(fd) == -1)
 		ft_putstr("close error\n");
 	return (tab);
