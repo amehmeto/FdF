@@ -6,7 +6,7 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 23:38:10 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/07 03:27:07 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/20 02:02:50 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char		***map_parser(const char *av)
 	int		fd;
 	int		i;
 
+	tab = (char ***)malloc(sizeof(char **) * 50000);
 	if ((fd = open(av, O_RDWR)) == -1)
 		ft_putstr("open error\n");
 	i = 0;

@@ -6,7 +6,7 @@
 #    By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/21 02:31:22 by amehmeto          #+#    #+#              #
-#    Updated: 2018/01/07 00:12:35 by amehmeto         ###   ########.fr        #
+#    Updated: 2018/01/20 00:28:53 by amehmeto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,11 @@ FILE = src/main.c \
 OBJ = $(FILE:.c=.o)
 CC = gcc
 FLAGS = -g -Weverything -lmlx -framework OpenGL -framework AppKit
+#FLAGS = -g -Weverything -lmlx -framework OpenGL -framework AppKit \
+ -O1 -g -fsanitize=address	\
+ -fno-omit-frame-pointer		\
+ -fsanitize-address-use-after-scope \
+
 
 all: $(NAME)
 
