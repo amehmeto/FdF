@@ -6,11 +6,11 @@
 /*   By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 07:12:38 by amehmeto          #+#    #+#             */
-/*   Updated: 2018/01/06 20:28:43 by amehmeto         ###   ########.fr       */
+/*   Updated: 2018/01/20 03:46:30 by amehmeto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fdf.h"
+#include "fdf.h"
 
 void	margin_adjustment(t_line *l, t_coor c, int var)
 {
